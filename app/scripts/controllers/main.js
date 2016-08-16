@@ -12,6 +12,8 @@ angular.module('tareas2App')
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
-      'Karma'
+      'Karma',
+        'E2E',
+        'Protractor'
     ];
   });
