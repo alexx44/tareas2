@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('tareas2App'));
+  beforeEach(module('tareasApp'));
 
   var MainCtrl,
     scope;
@@ -13,11 +13,25 @@ describe('Controller: MainCtrl', function () {
     scope = $rootScope.$new();
     MainCtrl = $controller('MainCtrl', {
       $scope: scope
-      // place here mocked dependencies
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+it('no debe tener items al comenzar', function () {
+  expect(scope.tareas.length).toBe(0);
+    
+});
+
+it('debe añadir items a la lista', function () {
+    scope.tarea = 'Test 1';
+    scope.addTarea();
+    expect(scope.tareas.length).toBe(1);
   });
+
+  it('debe añadir y luego eliminar un item de la lista', function () {
+    scope.tarea = 'Test 1';
+    scope.addTarea();
+    scope.eliminarTarea(0);
+    expect(scope.tareas.length).toBe(0);
+  });
+
 });

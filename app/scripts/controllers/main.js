@@ -1,19 +1,13 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name tareas2App.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the tareas2App
- */
 angular.module('tareas2App')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma',
-        'E2E',
-        'Protractor'
-    ];
+  .controller('MainCtrl', function ($scope) {
+    $scope.tareas = [];
+    $scope.addTarea = function () {
+      $scope.tareas.push($scope.tarea);
+      $scope.tarea = '';
+    };
+    $scope.eliminarTarea = function (index) {
+      $scope.tareas.splice(index, 1);
+    };    
   });
